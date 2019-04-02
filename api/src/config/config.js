@@ -1,4 +1,4 @@
 module.exports = {
     jwtSecret: 'sunview-bwoydem',
-    db: 'mongodb://localhost/JWTAuth'
+    db: 'mongodb://localhost/HealthApp'
 }
