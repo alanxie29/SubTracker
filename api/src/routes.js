@@ -1,7 +1,7 @@
 var express = require('express'),
     routes = express.Router();
 var userController = require('./controller/user-controller');
-var subscriptionController = require('./controller/sub-controller');
+var subController = require('./controller/sub-controller');
 var passport = require('passport');
 
 routes.get('/', (req, res) => {
@@ -15,6 +15,10 @@ routes.get('/special', passport.authenticate('jwt', {session: true }), (req, res
     return res.json({ msg: `Hey ${req.user.email}! I open at the close.`});
 });
 
-routes.post('/createSubscription', subscriptionController.create)
+
+routes.get('/getAll', subController.getAllSubscriptions);
+routes.post('/create', subController.createSubscription);
+routes.delete('/delete/:subscriptionId', subController.deleteById);
+routes.put('/update/:subscriptionId', subController.updateById);
 
 module.exports = routes;
