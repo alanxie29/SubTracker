@@ -3,7 +3,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 
 import { Subscription, IPriceSubscription, IDurrationSubscription, Subscription2}  from '../../../models/subscription';
-import { identifierModuleUrl } from '@angular/compiler';
 
 @Component({
   selector: 'app-login',
@@ -21,9 +20,7 @@ export class LoginPage implements OnInit {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-
     });
-    this.hello()
   }
 
   onSubmit() {

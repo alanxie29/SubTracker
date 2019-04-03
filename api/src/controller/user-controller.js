@@ -10,29 +10,24 @@ function createToken(user) {
 
 exports.registerUser = (req, res) => { console.log(req.body)
     if (!req.body.email || !req.body.password) {
-        console.log(1)
         return res.status(400).json({'msg': 'You need to send email and password' });
     } 
 
     User.findOne ({ email: req.body.email }, (err, user) => {
         if (err) {
-            console.log(2)
             return res.status(400).json({ 'msg': err });
         }
-
         if (user) {
-            console.log(3)
             return res.status(400).json({ 'msg': 'The user already exists' });
         }
 
         let newUser = User(req.body);
         newUser.save((err, user) => {
             if (err) {
-                console.log(4);
                 return res.status(400).json({'msg': err});
             }
             console.log(user)
-            return res.status(201).json(user);
+            return res.status(201).json(user.id);
         });
     });
 
@@ -54,13 +49,28 @@ exports.loginUser = (req, res) => {
  
         user.comparePassword(req.body.password, (err, isMatch) => {
             if (isMatch && !err) {
+                console.log(user)
                 return res.status(200).json({
-                    token: createToken(user)
+                    token: createToken(user),
+                    user: user.id
                 });
             } else {
-                console.log(5)
                 return res.status(400).json({ msg: 'The email and password dont match.' });
             }
         });
     });
 };
+
+exports.getUserById = (req, res) => {
+    User.findOne({ id: req.param.userId }, (err, userInfo) => {
+        if (err) {
+            return res.status(404).json({ msg: 'User not found' });
+        } else {
+            return res.status(200).json({ 
+                email: userInfo.email,
+                firstName: userInfo.firstName,
+                lastName: userInfo.lastName 
+            });
+        };
+    }
+)};

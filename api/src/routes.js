@@ -10,6 +10,7 @@ routes.get('/', (req, res) => {
 
 routes.post('/register', userController.registerUser);
 routes.post('/login', userController.loginUser);
+routes.get('/user/:userId', userController.getUserById);
 
 routes.get('/special', passport.authenticate('jwt', {session: true }), (req, res) => {
     return res.json({ msg: `Hey ${req.user.email}! I open at the close.`});

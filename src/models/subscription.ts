@@ -1,4 +1,3 @@
-import { identifierModuleUrl } from '@angular/compiler';
 
 export class Subscription implements IPriceSubscription, IDurrationSubscription {
   _id: string
@@ -39,17 +38,9 @@ export class Subscription implements IPriceSubscription, IDurrationSubscription 
 }
 
 
-
-
-
 export class Subscription2 extends Subscription {
 
 }
-
-
-
-
-
 export interface IPriceSubscription {
   DEC_ID: string;
   name: string;
