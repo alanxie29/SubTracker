@@ -66,10 +66,11 @@ exports.getUserById = (req, res) => {
         if (err) {
             return res.status(404).json({ msg: 'User not found' });
         } else {
-            return res.status(200).json({ 
+            return res.status(200).json({
+                id: userInfo.id, 
                 email: userInfo.email,
                 firstName: userInfo.firstName,
-                lastName: userInfo.lastName 
+                lastName: userInfo.lastName
             });
         };
     }

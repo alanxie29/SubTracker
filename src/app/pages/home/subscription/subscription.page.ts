@@ -1,16 +1,18 @@
-import { AuthService } from './../../services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { ToastController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-inside',
-  templateUrl: './inside.page.html',
-  styleUrls: ['./inside.page.scss'],
+  selector: 'app-subscription',
+  templateUrl: './subscription.page.html',
+  styleUrls: ['./subscription.page.scss'],
 })
-export class InsidePage implements OnInit {
+export class SubscriptionPage implements OnInit {
 
   data = '';
+  userData = null;
+
 
   constructor(
     private authService: AuthService, 
@@ -18,11 +20,17 @@ export class InsidePage implements OnInit {
     private toastController: ToastController) { }
 
   ngOnInit() {
-
+    this.getUserData();
   }
   
   logout() {
     this.authService.logout();
+  }
+
+  getUserData() {
+    this.authService.getUserData();
+    this.userData = this.authService.userData;
+    console.log(this.userData);
   }
 
   clearToken() {
