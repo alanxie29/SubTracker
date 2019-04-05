@@ -52,7 +52,7 @@ exports.loginUser = (req, res) => {
                 console.log(user)
                 return res.status(200).json({
                     token: createToken(user),
-                    user: user.id
+                    user: user
                 });
             } else {
                 return res.status(400).json({ msg: 'The email and password dont match.' });

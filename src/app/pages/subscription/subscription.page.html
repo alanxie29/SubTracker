@@ -1,15 +1,11 @@
 <ion-header>
-    <ion-toolbar color="primary">
+    <ion-toolbar color="success">
       <ion-title>Subscriptions</ion-title>
     </ion-toolbar>
   </ion-header>
-   
-  <ion-content padding>
-    Welcome to the members only area!
+ 
+<ion-content padding>
 
-    
-    <ion-button expand="full" (click)="getUserData()">Get Data</ion-button>
-    <ion-button expand="full" (click)="logout()">Logout</ion-button>
-    <ion-button expand="full" (click)="clearToken()">Clear JWT</ion-button>
-   
-  </ion-content>
+<ion-button expand="full" type="button" (click)="retrieveSubscriptions()" >get subscriptions</ion-button>
+
+</ion-content>

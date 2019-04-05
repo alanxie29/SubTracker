@@ -6,11 +6,8 @@ import { Storage } from '@ionic/storage';
 import { environment } from '../../environments/environment';
 import { tap, catchError } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
-import { User } from '../../models/user';
- 
+
 const TOKEN_KEY = 'access_token';
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -20,8 +17,8 @@ export class AuthService {
   url = environment.url;
   user = null;
   authenticationState = new BehaviorSubject(false);
-  userObj = null;
-  userData = null;
+
+
 
   constructor(
     private http: HttpClient,
@@ -68,7 +65,7 @@ export class AuthService {
         this.storage.set(TOKEN_KEY, res['token']);
         this.user = this.helper.decodeToken(res['token']);
         this.authenticationState.next(true);
-        this.userObj = res;
+        this.storage.set('userData', res);
       }),
       catchError(e => {
         this.showAlert(e.error.msg);
@@ -81,20 +78,6 @@ export class AuthService {
     this.storage.remove(TOKEN_KEY).then(() => {
       this.authenticationState.next(false);
     });
-  };
-
-  getUserData() {
-    return this.http.get(`${this.url}/api/user/${this.userObj.user}`) //5ca3797ee9c96e3d7c954be7
-      .subscribe((data: User) => this.userData = {
-        id: data['id'],
-        email: data['email'],
-        firstName: data['firstName'],
-        lastName: data['lastName'],
-        }),
-        catchError(e => {
-          this.showAlert(e.error.msg);
-          throw new Error(e);
-        });
   };
 
   isAuthenticated() {

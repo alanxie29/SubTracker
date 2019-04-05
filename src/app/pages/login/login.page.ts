@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-
-import { Subscription, IPriceSubscription, IDurrationSubscription, Subscription2}  from '../../../models/subscription';
+import { SubscriptionService } from '../../services/subscription.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +13,7 @@ export class LoginPage implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private subscription: SubscriptionService) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -25,16 +24,11 @@ export class LoginPage implements OnInit {
 
   onSubmit() {
     this.authService.login(this.loginForm.value).subscribe();
+    this.retrieveSubscriptions();
   }
 
-  subscriptions: Subscription2[] = [new Subscription2()]
-
-  hello() {
-    let prices: IPriceSubscription[] = this.subscriptions
-    console.log(prices[0].DEC_ID)
-
-    let durrations: IDurrationSubscription[] = this.subscriptions
-    console.log(durrations[0].durration.day)
+  retrieveSubscriptions() {
+    this.subscription.getSubscriptions();
   }
 
 }

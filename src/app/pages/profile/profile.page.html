@@ -1,9 +1,13 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>profile</ion-title>
-  </ion-toolbar>
-</ion-header>
-
+    <ion-toolbar color="success">
+      <ion-title>Profile</ion-title>
+    </ion-toolbar>
+  </ion-header>
+ 
 <ion-content padding>
 
+  <ion-button expand="full" (click)="getUserData()">Get Data</ion-button>
+  <ion-button expand="full" (click)="logout()">Logout</ion-button>
+  <ion-button expand="full" (click)="clearToken()">Clear JWT</ion-button>
+ 
 </ion-content>

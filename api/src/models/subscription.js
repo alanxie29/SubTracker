@@ -8,6 +8,11 @@ const SubscriptionSchema = new Schema({
     required: true,
     trim: true,
   },
+  description: {
+    type: String,
+    required: false,
+    trim: true
+  },
   duration: {
     type: Number,
     required: true,
