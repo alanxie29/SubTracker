@@ -10,9 +10,34 @@ import { HomePage } from './home.page';
 
 const routes: Routes = [
   {
-    path: '',
-    component: HomePage
+    path: 'home',
+    component: HomePage,
+    children: [
+      {
+        path: 'subscription',
+        children: [
+          {
+            path: '',
+            loadChildren: '../subscription/subscription.module#SubscriptionPageModule'
+          }
+        ]
+      },
+      {
+        path: 'profile',
+        children: [
+          {
+            path: '',
+            loadChildren: '../profile/profile.module#ProfilePageModule'
+          }
+        ]
+      }
+    ]
   },
+  {
+    path: '',
+    redirectTo: 'home/subscription',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
