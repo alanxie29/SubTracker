@@ -20,16 +20,13 @@ export class SubscriptionPage implements OnInit {
     ) {}
 
   ngOnInit() {
-
+    this.subscription.getSubscriptions();
   } 
 
 
 
   retrieveSubscriptions() {
-    this.subscription.getSubscriptions();
-    // this.storage.get('Subscriptions').then((val) => {
-    //   console.log(val)
-    // })
+    
   }
   
 

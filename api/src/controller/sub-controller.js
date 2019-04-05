@@ -51,7 +51,7 @@ exports.getAllSubscriptions = (req, res) => {
           duration: subscription.duration,
           price: subscription.price });
       }
-      res.status(200).json({data: {subscriptions: subscriptionsList}});
+      res.status(200).json({subscriptions: subscriptionsList});
     };
   });
 };

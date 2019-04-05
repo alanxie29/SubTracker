@@ -22,15 +22,14 @@ export class SubscriptionService {
 
   getSubscriptions() {
     return this.http.get(`${this.url}/api/getAll`)
-    .pipe(
-      tap(res => {
-        console.log(res)
+    .subscribe((res) => {
+      this.storage.set('Subscriptions', res)
+      console.log(res);
       }),
-      catchError(e => {
-        this.showAlert(e.error.msg);
-        throw new Error(e);
-      })
-    );
+    catchError(e => {
+      this.showAlert(e.error.msg);
+      throw new Error(e);
+    });
   };
 
   
