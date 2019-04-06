@@ -9,4 +9,9 @@ if (environment.production) {
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule)
+  .then(() => {
+    let splashScreen = document.getElementById('app-splash-screen');
+    splashScreen.setAttribute('class', 'loaded');
+    setTimeout(function(){ splashScreen.remove(); }, 2000);
+  })
   .catch(err => console.log(err));
