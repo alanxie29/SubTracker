@@ -37,7 +37,6 @@ exports.loginUser = (req, res) => {
     if (!req.body.email || !req.body.password) {
         return res.status(400).send({ 'msg': 'You need to send email and password' });
     }
- 
     User.findOne({ email: req.body.email }, (err, user) => {
         if (err) {
             return res.status(400).send({ 'msg': err });

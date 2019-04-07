@@ -3,8 +3,9 @@ const Subscription = require("../models/subscription");
 exports.createSubscription = (req, res) => {
   if (!req.body.name || !req.body.duration || !req.body.price)
     return res.status(400).json({ msg: "Missing Fields" });
-
   let newSubscription = Subscription(req.body);
+  // make sure we have req.user
+  // req.user.findOneAndUpdate()  <-- find a way to add subscription in user schema subscriptions array
   newSubscription.save((err, sub) => {
     if (err) {
       return res.status(400).json({ msg: console.err });

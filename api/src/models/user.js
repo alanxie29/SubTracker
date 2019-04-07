@@ -21,7 +21,10 @@ var UserSchema = new mongoose.Schema({
     lastName: {
         type: String,
         required: true
-    }
+    },
+    // subscriptions: [{   
+    //     type: 
+    // }]
 });
 
 UserSchema.pre('save', function(next) {
