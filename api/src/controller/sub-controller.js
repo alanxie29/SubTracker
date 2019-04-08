@@ -1,19 +1,18 @@
 const Subscription = require("../models/subscription");
-const passport = require('passport');
 const User = require('../models/user');
 
 exports.createSubscription = (req, res) => {
   if (!req.body.name || !req.body.duration || !req.body.price || !req.body.description)
     return res.status(400).json({ msg: "Missing Fields" });
     let newSubscription = Subscription(req.body)
-  User.findOneAndUpdate(req.params.userId, {
-    $push: 
-    {subscriptions: { 
-      name: req.body.name,
-      description: req.body.description,
-      duration: req.body.duration,
-      price: req.body.price,
-      }}, 
+  User.findOneAndUpdate({_id: req.params.userId}, 
+    {$push: 
+      {subscriptions:  
+      // name: req.body.name,
+      // description: req.body.description,
+      // duration: req.body.duration,
+      // price: req.body.price,
+      newSubscription }}), 
     function(err, userInfo) {
      if (err) {
        return res.status(400).json({ msg: `error adding subscription, ${err}` });
@@ -21,8 +20,7 @@ exports.createSubscription = (req, res) => {
       res.status(200).json({ msg: 'success, subscription added successfully', userInfo});
      };
    }
-  })
-};
+  };
   // make sure we have req.user
   // req.user.findOneAndUpdate()  <-- find a way to add subscription in user schema subscriptions array
 
