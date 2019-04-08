@@ -10,7 +10,7 @@ const SubscriptionSchema = new Schema({
   },
   description: {
     type: String,
-    required: false,
+    required: true,
     trim: true
   },
   duration: {

@@ -18,7 +18,7 @@ routes.get('/special', passport.authenticate('jwt', {session: true }), (req, res
 
 
 routes.get('/getAll', subController.getAllSubscriptions);
-routes.post('/create', subController.createSubscription);
+routes.put('/create/:userId', subController.createSubscription);
 routes.delete('/delete/:subscriptionId', subController.deleteById);
 routes.put('/update/:subscriptionId', subController.updateById);
 

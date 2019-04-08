@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
-var Subscription = require('./subscription');
+var Subscription = require('./subscription').schema;
 
 var UserSchema = new mongoose.Schema({
     email: {
@@ -22,9 +22,10 @@ var UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    // subscriptions: [{   
-    //     type: 
-    // }]
+    subscriptions: [{
+        type: Subscription,
+        default: undefined
+    }]
 });
 
 UserSchema.pre('save', function(next) {

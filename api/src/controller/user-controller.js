@@ -53,6 +53,7 @@ exports.loginUser = (req, res) => {
                     token: createToken(user),
                     user: user
                 });
+                
             } else {
                 return res.status(400).json({ msg: 'The email and password dont match.' });
             }
