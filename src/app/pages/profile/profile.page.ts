@@ -32,7 +32,7 @@ export class ProfilePage implements OnInit {
 
   getUserData() {
     this.storage.get('userData').then((val) => {
-      this.userObj = new User(val.user._id, val.user.email, val.user.firstName, val.user.lastName)
+      this.userObj = new User(val.user._id, val.user.email, val.user.firstName, val.user.lastName, val.user.subscriptions)
       console.log(this.userObj);
     });
   }

@@ -1,8 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { SubscriptionService } from '../../services/subscription.service';
-import { SubscriptionList } from '../../../models/subscriptionList';
-import { Subscription } from '../../../models/subscription';
+import { Subscription } from 'src/models/subscription';
 import { Storage } from '@ionic/storage';
 
 
@@ -14,19 +13,23 @@ import { Storage } from '@ionic/storage';
 
 export class SubscriptionPage implements OnInit {
 
+  subscriptionsList: Subscription[] = [];
+
   constructor(
     private subscription: SubscriptionService,
     private storage: Storage,
     ) {}
 
   ngOnInit() {
-    this.subscription.getSubscriptions();
+    this.getSubscriptions();
   } 
 
-
-
-  retrieveSubscriptions() {
-    
+  getSubscriptions() {
+    this.storage.get('userData').then((val) => {
+      val.user.subscriptions.forEach(sub => {
+        this.subscriptionsList.push(sub);
+      });
+    });
   }
   
 

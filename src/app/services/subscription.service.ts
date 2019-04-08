@@ -19,20 +19,7 @@ export class SubscriptionService {
     private storage: Storage,
     private alertController: AlertController,
     ) { }
-
-  getSubscriptions() {
-    return this.http.get(`${this.url}/api/getAll`)
-    .subscribe((res) => {
-      this.storage.set('Subscriptions', res)
-      console.log(res);
-      }),
-    catchError(e => {
-      this.showAlert(e.error.msg);
-      throw new Error(e);
-    });
-  };
-
-  
+ 
   showAlert(msg) {
     let alert = this.alertController.create({
       message: msg,

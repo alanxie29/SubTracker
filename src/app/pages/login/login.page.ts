@@ -24,11 +24,6 @@ export class LoginPage implements OnInit {
 
   onSubmit() {
     this.authService.login(this.loginForm.value).subscribe();
-    this.retrieveSubscriptions();
-  }
-
-  retrieveSubscriptions() {
-    this.subscription.getSubscriptions();
   }
 
 }

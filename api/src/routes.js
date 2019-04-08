@@ -10,16 +10,13 @@ routes.get('/', (req, res) => {
 
 routes.post('/register', userController.registerUser);
 routes.post('/login', userController.loginUser);
-routes.get('/user/:userId', userController.getUserById);
 
 routes.get('/special', passport.authenticate('jwt', {session: true }), (req, res) => {
     return res.json({ msg: `Hey ${req.user.email}! I open at the close.`});
 });
 
-
-routes.get('/getAll', subController.getAllSubscriptions);
 routes.put('/create/:userId', subController.createSubscription);
-routes.delete('/delete/:subscriptionId', subController.deleteById);
-routes.put('/update/:subscriptionId', subController.updateById);
+routes.delete('/delete/:userId', subController.deleteById);
+routes.put('/update/:userId', subController.updateById);
 
 module.exports = routes;
