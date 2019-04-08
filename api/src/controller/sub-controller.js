@@ -7,19 +7,22 @@ exports.createSubscription = (req, res) => {
     return res.status(400).json({ msg: "Missing Fields" });
     let newSubscription = Subscription(req.body)
   User.findOneAndUpdate(req.params.userId, {
-    subscriptions: [{ 
-      $push: {
-      newSubscription
-    }
-  }], 
-   }, function(err, userInfo) {
+    $push: 
+    {subscriptions: { 
+      name: req.body.name,
+      description: req.body.description,
+      duration: req.body.duration,
+      price: req.body.price,
+      }}, 
+    function(err, userInfo) {
      if (err) {
        return res.status(400).json({ msg: `error adding subscription, ${err}` });
      } else {
       res.status(200).json({ msg: 'success, subscription added successfully', userInfo});
      };
-   });
-  };
+   }
+  })
+};
   // make sure we have req.user
   // req.user.findOneAndUpdate()  <-- find a way to add subscription in user schema subscriptions array
 
