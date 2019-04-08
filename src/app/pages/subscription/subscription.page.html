@@ -1,11 +1,15 @@
 <ion-header>
     <ion-toolbar color="success">
+      <ion-buttons slot="end">
+        <ion-button [routerLink]="['/home/add']">
+          <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
       <ion-title>Subscriptions</ion-title>
     </ion-toolbar>
   </ion-header>
  
 <ion-content padding>
 
-<ion-button expand="full" type="button" (click)="retrieveSubscriptions()" >get subscriptions</ion-button>
 
 </ion-content>

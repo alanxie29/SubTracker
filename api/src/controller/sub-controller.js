@@ -2,7 +2,7 @@ const Subscription = require("../models/subscription");
 const User = require('../models/user');
 
 exports.createSubscription = (req, res) => {
-  if (!req.body.name || !req.body.duration || !req.body.price || !req.body.description)
+  if (!req.body.name || !req.body.renewalPeriod || !req.body.price || !req.body.description || !req.body.startDate)
     return res.status(400).json({ msg: "Missing Fields" });
     let newSubscription = Subscription(req.body)
   User.findOneAndUpdate({_id: req.params.userId}, 

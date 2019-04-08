@@ -30,14 +30,23 @@ const routes: Routes = [
             loadChildren: '../profile/profile.module#ProfilePageModule'
           }
         ]
+      },
+      {
+        path: 'add',
+        children: [
+          {
+            path: '',
+            loadChildren: '../add/add.module#AddPageModule'
+          }
+        ]
       }
     ]
   },
-  {
+    {
     path: '',
     redirectTo: 'home/subscription',
     pathMatch: 'full'
-  }
+    }
 ];
 
 @NgModule({

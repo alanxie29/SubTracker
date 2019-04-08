@@ -13,8 +13,12 @@ const SubscriptionSchema = new Schema({
     required: true,
     trim: true
   },
-  duration: {
-    type: Number,
+  startDate: {
+    type: Date,
+    required: true,
+  },
+  renewalPeriod: {
+    type: String,
     required: true,
     trim: true,
   },

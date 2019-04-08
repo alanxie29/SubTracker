@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add a Subscription</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <form [formGroup]="subscriptionForm"> (ngSubmit)="onSubmit()"
+        <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="name" formControlName="name"></ion-input>
+          </ion-item>
+       
+          <ion-item>
+            <ion-label position="floating">Password</ion-label>
+            <ion-input type="description" formControlName="description"></ion-input>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label position="floating">Start Date</ion-label>
+            <ion-datetime display-format="MMMM DD, YYYY" type="startDate" formControlName="startDate"></ion-datetime>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label position="floating">Renewal Period</ion-label>
+            <ion-select type="renewalPeriod" formControlName="renewalPeriod">
+                <ion-select-option value="daily">Daily</ion-select-option>
+                <ion-select-option value="weekly">Weekly</ion-select-option>
+                <ion-select-option value="bi-weekly">Bi-Weekly</ion-select-option>
+                <ion-select-option value="monthly">Monthly</ion-select-option>
+                <ion-select-option value="annually">Annually</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+              <ion-label position="floating">Price/Renewal Period</ion-label>
+              <ion-input type="price" formControlName="price"></ion-input>
+            </ion-item>
+       
+          <!-- <ion-button expand="full" type="submit" [disabled]="!registerForm.valid">Add Subscription</ion-button> -->
+       
+        </form>
+</ion-content>
