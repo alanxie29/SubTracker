@@ -21,9 +21,16 @@ export class SubscriptionService {
     private alertController: AlertController,
     ) { }
 
+  getUserId() {
+    this.storage.get('userData').then((val) => {
+      this.userId = val.user._id
+      console.log(this.userId);
+    });
+  };
+  
   
   createSubscription(data) { console.log(data)
-    this.getUserId()
+    this.getUserId();
     return this.http.put(`${this.url}/api/create/${this.userId}`, data)
     .pipe(
       tap(res => {
@@ -36,12 +43,6 @@ export class SubscriptionService {
     );
   };
  
-  getUserId() {
-    this.storage.get('userData').then((val) => {
-      this.userId = val.user._id
-      console.log(this.userId);
-    });
-  };
 
   showAlert(msg) {
     let alert = this.alertController.create({

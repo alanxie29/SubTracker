@@ -22,4 +22,8 @@ export class AddPage implements OnInit {
       price: ['', [Validators.required]]
     })
   }
+
+ async onSubmit() {
+  await this.subscriptionService.createSubscription(this.subscriptionForm.value).subscribe();
+  }
 }
