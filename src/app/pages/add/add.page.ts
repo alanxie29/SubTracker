@@ -14,6 +14,7 @@ export class AddPage implements OnInit {
   constructor(private subscriptionService: SubscriptionService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.subscriptionService.getUserId();
     this.subscriptionForm = this.formBuilder.group({
       name: ['', [Validators.required]],
       description: ['', [Validators.required]],
@@ -23,7 +24,7 @@ export class AddPage implements OnInit {
     })
   }
 
- async onSubmit() {
-  await this.subscriptionService.createSubscription(this.subscriptionForm.value).subscribe();
+  onSubmit() {
+   this.subscriptionService.createSubscription(this.subscriptionForm.value);
   }
 }

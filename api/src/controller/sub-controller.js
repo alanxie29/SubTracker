@@ -1,59 +1,86 @@
 const Subscription = require("../models/subscription");
-const User = require('../models/user');
+const User = require("../models/user");
 
 exports.createSubscription = (req, res) => {
-  if (!req.body.name || !req.body.renewalPeriod || !req.body.price || !req.body.description || !req.body.startDate)
+  if (
+    !req.body.name ||
+    !req.body.renewalPeriod ||
+    !req.body.price ||
+    !req.body.description ||
+    !req.body.startDate
+  )
     return res.status(400).json({ msg: "Missing Fields" });
-    let newSubscription = Subscription(req.body)
-  User.findOneAndUpdate({_id: req.params.userId}, 
-    {$push: {
-      subscriptions:  
-      newSubscription 
+  let newSubscription = Subscription(req.body);
+  User.findOneAndUpdate(
+    { _id: req.params.userId },
+    {
+      $push: {
+        subscriptions: newSubscription
       }
-    }, 
-    {new: true},
+    },
+    { new: true },
     function(err, userInfo) {
-     if (err) {
-       return res.status(400).json({ msg: `error adding subscription, ${err}` });
-     } else {
-      res.status(200).json({ msg: 'success, subscription added successfully', userInfo});
-     };
-   })
-  };
+      if (err) {
+        return res
+          .status(400)
+          .json({ msg: `error adding subscription, ${err}` });
+      } else {
+        res
+          .status(202)
+          .json({ msg: "success, subscription added successfully", userInfo });
+      }
+    }
+  );
+};
 
 exports.deleteById = (req, res) => {
-  User.findOneAndUpdate({_id: req.params.userId}, 
-    {$pull: 
+  User.findOneAndUpdate(
+    { _id: req.params.userId },
     {
-      subscriptions: {
-        _id: req.body.subscriptionId 
-      } 
-    }},
-    {new: true},
-    function(err, userInfo){
-    if (err) {
-      return res.status(400).json({ msg: `error deleting subscription, ${err}` });
-    } else {
-       res.status(200).json({ msg: 'subscription deleted successfully', userInfo })
-    };
-  });
+      $pull: {
+        subscriptions: {
+          _id: req.params.subscriptionId
+        }
+      }
+    },
+    { new: true },
+    function(err, userInfo) {
+      if (err) {
+        return res
+          .status(400)
+          .json({ msg: `error deleting subscription, ${err}` });
+      } else {
+        res
+          .status(202)
+          .json({ msg: "subscription deleted successfully", userInfo });
+      }
+    }
+  );
 };
 
 exports.updateById = (req, res) => {
-  let newSubscription = Subscription(req.body)
-  User.findOneAndUpdate({_id: req.params.userId},
-    {$set: {
-      subscriptions: 
-        newSubscription
+  let newSubscription = Subscription(req.body);
+  User.findOneAndUpdate(
+    { _id: req.params.userId },
+    {
+      $set: {
+        subscriptions: newSubscription
       }
-    }, 
-    {new: true}, 
+    },
+    { new: true },
     function(err, userInfo) {
-    if (err) {
-      return res.status(204).json({ msg: `error updating subscription, ${err}` });
-    } else {
-      res.status(200).json({ msg: "success, Subscription updated successfully", userInfo });
-    };
-  });
+      if (err) {
+        return res
+          .status(204)
+          .json({ msg: `error updating subscription, ${err}` });
+      } else {
+        res
+          .status(200)
+          .json({
+            msg: "success, Subscription updated successfully",
+            userInfo
+          });
+      }
+    }
+  );
 };
-

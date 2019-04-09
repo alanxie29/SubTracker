@@ -10,6 +10,22 @@
   </ion-header>
  
 <ion-content padding>
+  <ion-card *ngFor="let subscription of subscriptionsList">
+    <ion-card-header>
+      <ion-item lines="none">
+      <ion-label mode="ios">{{subscription.description}}</ion-label>
+      <ion-buttons>
+          <ion-button>
+            <ion-icon item-right slot="end" name="md-create" color="success" size="small"></ion-icon>
+          </ion-button>
+          <ion-button (click)="removeSub(subscription);">
+              <ion-icon item-right slot="end" name="ios-close" color="success" size="small"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+      <ion-card-title>{{subscription.name}}</ion-card-title>
 
+    </ion-card-header>
+  </ion-card>
 
 </ion-content>

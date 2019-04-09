@@ -16,15 +16,21 @@ export class SubscriptionPage implements OnInit {
   subscriptionsList: Subscription[] = [];
 
   constructor(
-    private subscription: SubscriptionService,
+    private subscriptionService: SubscriptionService,
     private storage: Storage,
     ) {}
 
+
   ngOnInit() {
-    this.getSubscriptions();
+
   } 
 
+  ionViewDidEnter() {
+    this.getSubscriptions();
+  }
+  
   getSubscriptions() {
+    this.subscriptionsList.length = 0
     this.storage.get('userData').then((val) => {
       val.user.subscriptions.forEach(sub => {
         this.subscriptionsList.push(sub);
@@ -32,6 +38,14 @@ export class SubscriptionPage implements OnInit {
       console.log(this.subscriptionsList);
     });
   }
-  
+
+  removeSub(subscription) {
+    let index = this.subscriptionsList.indexOf(subscription)
+    if(index > -1) {
+      this.subscriptionsList.splice(index, 1);
+    }
+    console.log(subscription._id)
+    this.subscriptionService.deleteSubscription(subscription._id)
+  }
 
 }
