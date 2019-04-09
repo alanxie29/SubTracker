@@ -1,0 +1,13 @@
+ion-content {
+  // --background: linear-gradient(45deg, rgba(49,165,199,1) 0%, rgba(1,99,141,1) 100%); /* w3c */
+  position: absolute !important;
+  margin-top: 50%;
+  margin-bottom: 50%;
+}
+
+.vertical-align-content {
+  display: flex !important;
+  align-content: !important;
+  align-items: center !important;
+}
+

@@ -8,7 +8,8 @@ const routes: Routes = [
   canActivate: [AuthGuardService]  
 },
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
-  { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' },
+  { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' },  { path: 'landing', loadChildren: './pages/landing/landing.module#LandingPageModule' },
+
 
 
   
