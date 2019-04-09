@@ -44,11 +44,9 @@ export class SubscriptionService {
   }
 
   deleteSubscription(_id) {
-    console.log(this.userId)
     this.http.delete(`${this.url}/api/delete/${this.userId}/${_id}`)
       .pipe(
         tap(res => {
-          console.log(res)
           this.storage.set("userData", res);
         }),
         catchError(e => {

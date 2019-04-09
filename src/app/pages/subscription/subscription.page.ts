@@ -44,7 +44,6 @@ export class SubscriptionPage implements OnInit {
     if(index > -1) {
       this.subscriptionsList.splice(index, 1);
     }
-    console.log(subscription._id)
     this.subscriptionService.deleteSubscription(subscription._id)
   }
 
