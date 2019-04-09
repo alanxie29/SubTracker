@@ -14,6 +14,8 @@ import { Storage } from '@ionic/storage';
 export class SubscriptionPage implements OnInit {
 
   subscriptionsList: Subscription[] = [];
+  firstName: string = 'null';
+  today = new Date();
 
   constructor(
     private subscriptionService: SubscriptionService,
@@ -22,11 +24,12 @@ export class SubscriptionPage implements OnInit {
 
 
   ngOnInit() {
-
+    
   } 
 
   ionViewDidEnter() {
     this.getSubscriptions();
+
   }
   
   getSubscriptions() {
@@ -35,7 +38,6 @@ export class SubscriptionPage implements OnInit {
       val.user.subscriptions.forEach(sub => {
         this.subscriptionsList.push(sub);
       });
-      console.log(this.subscriptionsList);
     });
   }
 

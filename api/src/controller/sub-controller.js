@@ -64,7 +64,10 @@ exports.updateById = (req, res) => {
     { _id: req.params.userId },
     {
       $set: {
-        subscriptions: newSubscription
+        subscriptions:{
+          _id: req.params.subscriptionId,
+          newSubscription
+        } 
       }
     },
     { new: true },
@@ -76,10 +79,7 @@ exports.updateById = (req, res) => {
       } else {
         res
           .status(200)
-          .json({
-            msg: "success, Subscription updated successfully",
-            userInfo
-          });
+          .json({ msg: "success, Subscription updated successfully",userInfo });
       }
     }
   );

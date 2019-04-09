@@ -4,7 +4,6 @@ import { Storage } from "@ionic/storage";
 import { tap, catchError } from "rxjs/operators";
 import { environment } from "../../environments/environment";
 import { AlertController } from "@ionic/angular";
-import { Subject } from "rxjs";
 
 @Injectable({
   providedIn: "root"
@@ -18,7 +17,10 @@ export class SubscriptionService {
     private http: HttpClient,
     private storage: Storage,
     private alertController: AlertController
-  ) {this.getUserId();}
+  ) 
+  {
+    this.getUserId();
+  }
 
   getUserId() {
     this.storage.get("userData").then(val => {
@@ -28,11 +30,9 @@ export class SubscriptionService {
   }
 
   createSubscription(data) {
-    console.log(data);
     this.http.put(`${this.url}/api/create/${this.userId}`, data)
       .pipe(
         tap(res => {
-          console.log(res)
           this.storage.set("userData", res);
         }),
         catchError(e => {
@@ -54,6 +54,21 @@ export class SubscriptionService {
           throw new Error(e);
         })
       ).subscribe();
+  }
+
+  updateSubscription(data, _id) {
+    console.log(data)
+    this.http.put(`${this.url}/api/update/${this.userId}/${_id}`, data)
+    .pipe(
+      tap(res => {
+        this.storage.set("userData", res);
+      }),
+      catchError(e => {
+        this.showAlert(e.error.msg);
+        throw new Error(e);
+      })
+    )
+    .subscribe();
   }
 
 

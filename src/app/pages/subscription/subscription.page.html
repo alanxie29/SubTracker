@@ -8,14 +8,18 @@
       <ion-title>Subscriptions</ion-title>
     </ion-toolbar>
   </ion-header>
+
+
  
-<ion-content padding>
-  <ion-card *ngFor="let subscription of subscriptionsList">
+<ion-content class="background" padding >
+    <ion-badge class="date">{{today | date}}</ion-badge>
+    <ion-text color="white"><h2>Welcome, {{firstName}} </h2></ion-text>
+  <ion-card class="card" *ngFor="let subscription of subscriptionsList">
     <ion-card-header>
       <ion-item lines="none">
       <ion-label mode="ios">{{subscription.description}}</ion-label>
       <ion-buttons>
-          <ion-button>
+          <ion-button [routerLink]="['/home/edit']">
             <ion-icon item-right slot="end" name="md-create" color="success" size="small"></ion-icon>
           </ion-button>
           <ion-button (click)="removeSub(subscription);">
