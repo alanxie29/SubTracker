@@ -4,6 +4,33 @@ ion-content {
 
 ion-card {
   --background:  #ffffff !important;
+  border-radius: 18px;
+  height: 100px;
+  width: 90%;
+  // box-shadow: 2px 3px #B3B5B5;
+}
+
+ion-card-header {
+}
+
+ion-img {
+  margin-bottom: 22px;
+}
+
+ion-card-title {
+  font-size: 20px;
+}
+
+.description {
+  margin-top: 2px;
+}
+
+h1 {
+  font-size: 14px;
+}
+
+ion-text {
+  margin-top: -18px;
 }
 
 .date {

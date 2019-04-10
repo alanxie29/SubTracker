@@ -20,10 +20,11 @@ export class SubscriptionPage implements OnInit {
   constructor(
     private subscriptionService: SubscriptionService,
     private storage: Storage,
-    ) {}
-
+    ) { }
+  
 
   ngOnInit() {
+
     
   } 
 
@@ -39,7 +40,8 @@ export class SubscriptionPage implements OnInit {
       });
       console.log(this.subscriptionsList);
     });
-  }
+  };
+
 
   removeSub(subscription) {
     let index = this.subscriptionsList.indexOf(subscription)
@@ -48,5 +50,4 @@ export class SubscriptionPage implements OnInit {
     }
     this.subscriptionService.deleteSubscription(subscription._id)
   }
-
 }

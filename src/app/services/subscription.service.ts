@@ -13,7 +13,7 @@ import { AlertController } from "@ionic/angular";
 export class SubscriptionService {
   url = environment.url;
   userId: string = '';
-  jwt: string = ''
+  jwt: string = '';
 
 
   constructor(
@@ -23,6 +23,7 @@ export class SubscriptionService {
   ) 
   {
     this.getToken();
+    this.getUserId();
   }
 
   getUserId() {

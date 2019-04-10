@@ -3,7 +3,7 @@
       <ion-buttons slot="end">
         <ion-button [routerLink]="['/home/add']">
           <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
-        </ion-button>
+        </ion-button>  
       </ion-buttons>
       <ion-title>Subscriptions</ion-title>
     </ion-toolbar>
@@ -13,23 +13,34 @@
  
 <ion-content padding >
     <ion-badge class="date">{{today | date}}</ion-badge>
-    <ion-text color="light"><h2>Welcome, {{firstName}} </h2></ion-text>
+    <ion-text color="light"><h2>Welcome, {{firstName}}! </h2></ion-text>
   <ion-card class="card" *ngFor="let subscription of subscriptionsList">
     <ion-card-header>
-      <ion-item lines="none">
-      <ion-label mode="ios">{{subscription.description}}</ion-label>
-      <ion-buttons>
-          <ion-button [routerLink]="['/home/edit']">
-            <ion-icon item-right slot="end" name="md-create" color="success" size="small"></ion-icon>
-          </ion-button>
-          <ion-button (click)="removeSub(subscription);">
-              <ion-icon item-right slot="end" name="ios-close" color="success" size="small"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-      </ion-item>
-      <ion-card-title>{{subscription.name}}</ion-card-title>
-
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3"><ion-img style="height: 50px; width: 50px" src="../../../assets/spotify.png"></ion-img></ion-col>
+          <ion-col size="8">
+            <ion-row>
+            <ion-card-title>{{subscription.name}}</ion-card-title>
+            <ion-text><h1>{{subscription.startDate | date}}</h1></ion-text>
+            </ion-row>
+            <ion-row class="description"> 
+            <ion-icon name="musical-notes" size="small"></ion-icon>
+            <ion-text><h1 color="description">{{subscription.description}}</h1></ion-text>
+          </ion-row>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
     </ion-card-header>
   </ion-card>
 
+  <!-- <ion-buttons>
+      <ion-button [routerLink]="['/home/edit']">
+        <ion-icon item-right slot="end" name="md-create" color="success" size="small"></ion-icon>
+      </ion-button>
+      <ion-button (click)="removeSub(subscription);">
+          <ion-icon item-right slot="end" name="ios-close" color="success" size="small"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+    
 </ion-content>
