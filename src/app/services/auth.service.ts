@@ -35,7 +35,7 @@ export class AuthService {
 
   checkToken() {
     this.storage.get(TOKEN_KEY).then(token => {
-      if (token) {
+        if (token) {
         let decoded = this.helper.decodeToken(token);
         let isExpired = this.helper.isTokenExpired(token);
 
@@ -50,7 +50,7 @@ export class AuthService {
   }
 
   register(credentials) {
-    return this.http.post(`${this.url}/api/register`, credentials).pipe(
+    return this.http.post(`${this.url}/register`, credentials).pipe(
       catchError(e => {
         this.showAlert(e.error.msg);
         throw new Error(e);
@@ -59,7 +59,7 @@ export class AuthService {
   }
 
   login(credentials) { console.log(credentials)
-    return this.http.post(`${this.url}/api/login`, credentials)
+    return this.http.post(`${this.url}/login`, credentials)
     .pipe(
       tap(res => {
         this.storage.set(TOKEN_KEY, res['token']);

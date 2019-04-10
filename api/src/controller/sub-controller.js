@@ -19,7 +19,7 @@ exports.createSubscription = (req, res) => {
       }
     },
     { new: true },
-    function(err, userInfo) {
+    function(err, user) {
       if (err) {
         return res
           .status(400)
@@ -27,7 +27,7 @@ exports.createSubscription = (req, res) => {
       } else {
         res
           .status(202)
-          .json({ msg: "success, subscription added successfully", userInfo });
+          .json({ msg: "success, subscription added successfully", user });
       }
     }
   );
@@ -44,7 +44,7 @@ exports.deleteById = (req, res) => {
       }
     },
     { new: true },
-    function(err, userInfo) {
+    function(err, user) {
       if (err) {
         return res
           .status(400)
@@ -52,7 +52,7 @@ exports.deleteById = (req, res) => {
       } else {
         res
           .status(202)
-          .json({ msg: "subscription deleted successfully", userInfo });
+          .json({ msg: "subscription deleted successfully", user });
       }
     }
   );
@@ -71,7 +71,7 @@ exports.updateById = (req, res) => {
       }
     },
     { new: true },
-    function(err, userInfo) {
+    function(err, user) {
       if (err) {
         return res
           .status(204)
@@ -79,7 +79,7 @@ exports.updateById = (req, res) => {
       } else {
         res
           .status(200)
-          .json({ msg: "success, Subscription updated successfully",userInfo });
+          .json({ msg: "success, Subscription updated successfully",user });
       }
     }
   );

@@ -28,6 +28,7 @@ export class HomePage implements OnInit {
       val.user.subscriptions.forEach(sub => {
         this.subscriptionsList.push(sub);
       });
+      console.log(this.subscriptionsList);
     });
   }
 

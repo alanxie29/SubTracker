@@ -29,7 +29,6 @@ export class SubscriptionPage implements OnInit {
 
   ionViewDidEnter() {
     this.getSubscriptions();
-
   }
   
   getSubscriptions() {
@@ -38,6 +37,7 @@ export class SubscriptionPage implements OnInit {
       val.user.subscriptions.forEach(sub => {
         this.subscriptionsList.push(sub);
       });
+      console.log(this.subscriptionsList);
     });
   }
 

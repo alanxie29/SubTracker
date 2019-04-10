@@ -24,7 +24,8 @@ app.get('/', function(req, res) {
 });
 
 var routes = require('./routes');
-app.use('/api', routes);
+app.use('/api', ProtectedRoutes);
+app.use('', routes)
 
 mongoose.connect(config.db, { useNewUrlParser: true, useCreateIndex: true});
 

@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Storage } from "@ionic/storage";
 import { tap, catchError } from "rxjs/operators";
 import { environment } from "../../environments/environment";
@@ -9,9 +9,12 @@ import { AlertController } from "@ionic/angular";
   providedIn: "root"
 })
 
+
 export class SubscriptionService {
   url = environment.url;
-  userId: string = "";
+  userId: string = '';
+  jwt: string = ''
+
 
   constructor(
     private http: HttpClient,
@@ -19,18 +22,28 @@ export class SubscriptionService {
     private alertController: AlertController
   ) 
   {
-    this.getUserId();
+    this.getToken();
   }
 
   getUserId() {
-    this.storage.get("userData").then(val => {
+    this.storage.get('userData').then(val => {
       this.userId = val.user._id;
-      console.log(this.userId);
     });
+  };
+
+  getToken() {
+    this.storage.get('access_token').then((token) => {
+      this.jwt = token;
+    })
   }
 
   createSubscription(data) {
-    this.http.put(`${this.url}/api/create/${this.userId}`, data)
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'access-token': this.jwt
+        })
+      };
+    this.http.put(`${this.url}/api/create/${this.userId}`, data, httpOptions)
       .pipe(
         tap(res => {
           this.storage.set("userData", res);
@@ -44,7 +57,12 @@ export class SubscriptionService {
   }
 
   deleteSubscription(_id) {
-    this.http.delete(`${this.url}/api/delete/${this.userId}/${_id}`)
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'access-token': this.jwt
+        })
+      };
+    this.http.delete(`${this.url}/api/delete/${this.userId}/${_id}`, httpOptions)
       .pipe(
         tap(res => {
           this.storage.set("userData", res);
@@ -57,8 +75,13 @@ export class SubscriptionService {
   }
 
   updateSubscription(data, _id) {
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'access-token': this.jwt
+        })
+      };
     console.log(data)
-    this.http.put(`${this.url}/api/update/${this.userId}/${_id}`, data)
+    this.http.put(`${this.url}/api/update/${this.userId}/${_id}`, data, httpOptions)
     .pipe(
       tap(res => {
         this.storage.set("userData", res);
