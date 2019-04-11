@@ -2,10 +2,24 @@
 
 </ion-header>
 
-<ion-content padding class="vertical-aling-content">
-  <ion-grid>
-    <ion-img style="height: 80px; width: 150px" src="../../../assets/splash-screen/credit-cards.svg"></ion-img>
-    <ion-button expand="block" type="button" [routerLink]="['/login']">Login</ion-button>
-    <ion-button expand="block" type="button" [routerLink]="['/register']">Register</ion-button>
+<ion-content padding>
+  <ion-grid  class="content"> 
+    <ion-row align-items-center>
+    <ion-col>
+      <ion-row>
+        <ion-col size="4">
+    <ion-img style="height: 80px; width: 150px; margin-left: 175px;" src="../../../assets/splash-screen/credit-cards.svg"></ion-img>
+        </ion-col>
+        <ion-col size="4">
+    <ion-text><h1>asdawd</h1></ion-text>
+  </ion-col>
+      </ion-row>
+      <ion-row class="subText" align-items-center>
+        <ion-text><h4>something here</h4></ion-text>
+      </ion-row>
+    <ion-button expand="block" type="button" [routerLink]="['/login']"><ion-ripple-effect></ion-ripple-effect>Login</ion-button>
+    <ion-button expand="block" type="button" [routerLink]="['/register']"><ion-ripple-effect></ion-ripple-effect>Register</ion-button>
+  </ion-col>
+</ion-row>
   </ion-grid>
 </ion-content>

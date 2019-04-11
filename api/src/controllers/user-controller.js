@@ -9,7 +9,7 @@ function createToken(user) {
 }
 
 exports.registerUser = (req, res) => { console.log(req.body)
-    if (!req.body.email || !req.body.password) {
+    if (!req.body.email || !req.body.password || !req.body.phoneNumber) {
         return res.status(400).json({'msg': 'You need to send email and password' });
     } 
 
@@ -27,7 +27,7 @@ exports.registerUser = (req, res) => { console.log(req.body)
                 return res.status(400).json({'msg': err});
             }
             console.log(user)
-            return res.status(201).json(user.id);
+            return res.status(201).json({'msg': "user created sucessfully"});
         });
     });
 

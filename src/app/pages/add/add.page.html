@@ -40,7 +40,8 @@
               <ion-input type="price" formControlName="price"></ion-input>
             </ion-item>
        
-          <ion-button expand="full" type="submit" [disabled]="!subscriptionForm.valid" [routerLink]='["/home/subscription"]'>Add Subscription</ion-button>
+          <ion-button expand="full" type="submit" [disabled]="!subscriptionForm.valid" [routerLink]='["/home/subscription"]'><ion-ripple-effect></ion-ripple-effect>
+            Add Subscription</ion-button>
        
         </form>
 </ion-content>

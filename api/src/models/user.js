@@ -25,7 +25,13 @@ var UserSchema = new mongoose.Schema({
     subscriptions: [{
         type: Subscription,
         default: undefined
-    }]
+    }],
+    phoneNumber: {
+        type: String,
+        required: true,
+        trim: true,
+        unique: true
+    }
 });
 
 UserSchema.pre('save', function(next) {

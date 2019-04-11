@@ -26,11 +26,16 @@
     </ion-item>
 
     <ion-item>
-      <ion-label position="floating">Renewal Period</ion-label>
+      <ion-label position="floating">Last Name</ion-label>
       <ion-input type="lastName" formControlName="lastName"></ion-input>
     </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Phone Number</ion-label>
+        <ion-input type="phoneNumber" formControlName="phoneNumber"></ion-input>
+      </ion-item>
  
-    <ion-button expand="full" type="submit" [disabled]="!registerForm.valid">Register</ion-button>
+    <ion-button expand="full" type="submit" [disabled]="!registerForm.valid"><ion-ripple-effect></ion-ripple-effect>Register</ion-button>
  
   </form>
 </ion-content>

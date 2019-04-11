@@ -17,12 +17,14 @@
   <ion-card class="card" *ngFor="let subscription of subscriptionsList">
     <ion-card-header>
       <ion-grid>
+        <ion-row> 
+            <ion-text><h1 class="startDate">{{subscription.startDate | date}}</h1></ion-text>
+        </ion-row>
         <ion-row>
           <ion-col size="3"><ion-img style="height: 50px; width: 50px" src="../../../assets/spotify.png"></ion-img></ion-col>
-          <ion-col size="8">
+          <ion-col>
             <ion-row>
             <ion-card-title>{{subscription.name}}</ion-card-title>
-            <ion-text><h1>{{subscription.startDate | date}}</h1></ion-text>
             </ion-row>
             <ion-row class="description"> 
             <ion-icon name="musical-notes" size="small"></ion-icon>
@@ -34,7 +36,7 @@
     </ion-card-header>
   </ion-card>
 
-  <!-- <ion-buttons>
+  <!-- <ion-buttons>S
       <ion-button [routerLink]="['/home/edit']">
         <ion-icon item-right slot="end" name="md-create" color="success" size="small"></ion-icon>
       </ion-button>

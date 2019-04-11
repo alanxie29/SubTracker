@@ -5,9 +5,20 @@ ion-content {
   margin-bottom: 50%;
 }
 
-.vertical-align-content {
-  display: flex !important;
-  align-content: !important;
-  align-items: center !important;
+.content {
+  margin-top: 50% !important;
 }
+
+.subText {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+ion-button {
+  width: 250px;
+  height: 40px;
+  margin-left: 40px;
+}
+
+
 

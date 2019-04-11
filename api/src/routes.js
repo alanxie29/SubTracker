@@ -1,8 +1,8 @@
 var express = require('express'),
     routes = express.Router();
     ProtectedRoutes = express.Router();
-var userController = require('./controller/user-controller');
-var subController = require('./controller/sub-controller');
+var userController = require('./controllers/user-controller');
+var subController = require('./controllers/sub-controller');
 var passport = require('passport');
 var jwt = require('jsonwebtoken')
 var config = require('./config/config')

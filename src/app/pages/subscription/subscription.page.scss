@@ -7,10 +7,11 @@ ion-card {
   border-radius: 18px;
   height: 100px;
   width: 90%;
-  // box-shadow: 2px 3px #B3B5B5;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-ion-card-header {
+.card:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 ion-img {
@@ -18,7 +19,7 @@ ion-img {
 }
 
 ion-card-title {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .description {
@@ -31,6 +32,10 @@ h1 {
 
 ion-text {
   margin-top: -18px;
+}
+
+.startDate {
+  font-size: 10px !important;
 }
 
 .date {
