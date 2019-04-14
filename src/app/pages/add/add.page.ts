@@ -26,5 +26,6 @@ export class AddPage implements OnInit {
 
   onSubmit() {
    this.subscriptionService.createSubscription(this.subscriptionForm.value);
+   this.subscriptionForm.reset();
   }
 }
