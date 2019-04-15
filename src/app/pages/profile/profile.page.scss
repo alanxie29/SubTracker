@@ -1,3 +1,44 @@
 ion-content {
   --background: linear-gradient(45deg, rgba(49,165,199,1) 0%, rgba(1,99,141,1) 100%); /* w3c */
 }
+
+.title {
+  padding-left: 95px !important;
+}
+
+.avatar {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 120px !important;
+  max-height: 120px !important;
+  margin-left: 105px !important;
+  margin-top: 10px;
+  --border-radius: 50% !important;
+  border: 1px solid #ffffff !important;
+}
+
+.username {
+  font-weight: 600 !important;
+}
+
+.name {
+  padding-left: 115px !important;
+  padding-top: 10px !important;
+}
+
+.phone {
+  width: 100%;
+  max-width: 100vw;
+  margin-left: 80px !important;
+  margin-bottom: 15px !important;
+}
+
+.icon {
+  margin-right: 5px !important;
+  margin-top: 18px !important;
+}
+
+.number {
+  font-weight: 200;
+  font-size: 18px;
+}

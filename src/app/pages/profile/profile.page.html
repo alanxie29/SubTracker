@@ -1,19 +1,33 @@
 <ion-header>
-    <ion-toolbar color="success">
-      </ion-buttons>
-      <ion-title>Subscriptions</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-
+  <ion-toolbar color="success">
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content padding>
-  <ion-card>
-  <ion-card-title> Personal Details </ion-card-title>
-
-  <!-- 
-  <ion-button expand="full" (click)="getUserData()">Get Data</ion-button>
-  <ion-button expand="full" (click)="logout()">Logout</ion-button>
-  <ion-button expand="full" (click)="clearToken()">Clear JWT</ion-button> -->
-</ion-card>
+  <ion-grid>
+    <ion-row class="title">
+      <ion-text color="light"><h4>Personal Details</h4></ion-text>
+    </ion-row>
+    <ion-row>
+      <ion-avatar class="avatar">
+        <img src="../../../assets/profile.png">
+      </ion-avatar>
+    </ion-row>
+    <ion-row class="name">
+      <ion-text color="light"><h4 class="username">{{userObj.firstName}} {{userObj.lastName}}</h4></ion-text>
+    </ion-row>
+    <ion-row class="phone">
+      <ion-icon class="icon" name="call" size="small" color="light"></ion-icon>
+      <ion-text color="light"><h4 class="number"> :  {{userObj.phoneNumber}}</h4></ion-text>
+    </ion-row>
+      <ion-item></ion-item>
+      <ion-item></ion-item>
+      <ion-item></ion-item>
+  </ion-grid>
 </ion-content>
+
+
+
+  <ion-button expand="full" (click)="logout()">Logout</ion-button>
+
