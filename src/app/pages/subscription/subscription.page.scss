@@ -36,6 +36,9 @@ ion-text {
 
 .startDate {
   font-size: 10px !important;
+  margin-left: 235px !important;
+  z-index: 1 !important;
+
 }
 
 .date {
@@ -43,4 +46,10 @@ ion-text {
   --color: white !important;
   --padding: 5;
   --opactity: 1 !important;
+}
+
+.rate {
+  margin-left: 235px !important;
+  font-size: 10px !important;
+  margin-top: 0px !important;
 }
