@@ -1,5 +1,5 @@
 ion-content {
-  --background: linear-gradient(45deg, rgba(49,165,199,1) 0%, rgba(1,99,141,1) 100%); /* w3c */
+  --background: linear-gradient(45deg, rgba(49,165,199,1) 0%, rgba(1,99,141,1) 100%);
 }
 
 ion-card {
@@ -26,6 +26,11 @@ ion-card-title {
   margin-top: 2px;
 }
 
+.description-text {
+  margin-left: 5px;
+}
+
+
 h1 {
   font-size: 14px;
 }
@@ -38,7 +43,7 @@ ion-text {
   font-size: 10px !important;
   margin-left: 235px !important;
   z-index: 1 !important;
-
+  margin-top: 10px !important;
 }
 
 .date {
@@ -52,4 +57,29 @@ ion-text {
   margin-left: 235px !important;
   font-size: 10px !important;
   margin-top: 0px !important;
+}
+
+ion-grid {
+  padding-top: 0px !important;
+}
+
+.buttons { 
+  margin-bottom: 0x !important;
+  margin-left: 220px !important;
+}
+
+ion-button {
+  padding: 0px !important;
+}
+
+.date {
+  margin-left: 18px !important;
+}
+
+.welcome {
+  margin-left: 18px !important;
+}
+
+.create {
+  left: 10px !important;
 }

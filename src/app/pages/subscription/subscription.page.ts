@@ -16,6 +16,23 @@ export class SubscriptionPage implements OnInit {
   subscriptionsList: Subscription[] = [];
   firstName: string = 'null';
   today = new Date();
+  // logos = [
+  //   {
+  //     img: '../../../assets/logos/spotify.png'
+  //   },
+  //   {
+  //     img: '../../../assets/logos/amazon-prime.jpg'
+  //   },
+  //   {
+  //     img: '../../../assets/logos/netflix.jpg'
+  //   },
+  //   {
+  //     img: '../../../assets'
+  //   },
+
+  // ]
+
+  
 
   constructor(
     private subscriptionService: SubscriptionService,
@@ -25,7 +42,6 @@ export class SubscriptionPage implements OnInit {
 
   ngOnInit() {
 
-    
   } 
 
   ionViewDidEnter() {

@@ -13,22 +13,32 @@
  
 <ion-content padding >
     <ion-badge class="date">{{today | date}}</ion-badge>
-    <ion-text color="light"><h2>Welcome, Bill Sheng! </h2></ion-text>
+    <ion-text color="light"><h2 class="welcome">Welcome, Bill Sheng! </h2></ion-text>
   <ion-card class="card" *ngFor="let subscription of subscriptionsList">
+    <ion-row class="buttons">
+    <ion-buttons>
+      <ion-button [routerLink]="['/home/edit']">
+        <ion-icon class="create" item-right slot="end" name="md-create" color="success" size="small"></ion-icon>
+      </ion-button>
+      <ion-button (click)="removeSub(subscription);">
+          <ion-icon item-right slot="end" name="ios-close" color="success" size="small"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-row>
       <ion-text style="margin-bottom: 0px !important;"><h1 class="startDate">{{subscription.startDate | date}}</h1></ion-text>
       <ion-text><h1 class="rate">${{subscription.price}}/{{subscription.renewalPeriod}}</h1></ion-text>
-    <ion-card-header style="padding-top: 0px !important; margin-top: 0px !important; bottom: 45px !important; z-index:-1 !important;">
-      <ion-grid >
+    <ion-card-header style="padding-top: 0px !important; margin-top: 0px !important; bottom: 60px !important; z-index:-1 !important;">
+      <ion-grid>
         <ion-row>
           <ion-col size="3">
-            <ion-img style="height: 50px; width: 50px" src="../../../assets/spotify.png"></ion-img></ion-col>
+            <ion-img style="height: 50px; width: 50px; padding-right: 0px;" src="../../../assets/spotify.png"></ion-img></ion-col>
           <ion-col>
             <ion-row>
             <ion-card-title>{{subscription.name}}</ion-card-title>
             </ion-row>
             <ion-row class="description"> 
             <ion-icon name="musical-notes" size="small"></ion-icon>
-            <ion-text><h1 color="description">{{subscription.description}}</h1></ion-text>
+            <ion-text class="description-text"><h1 color="description">{{subscription.description}}</h1></ion-text>
           </ion-row>
           </ion-col>
         </ion-row>
@@ -36,13 +46,6 @@
     </ion-card-header>
   </ion-card>
 
-  <!-- <ion-buttons>S
-      <ion-button [routerLink]="['/home/edit']">
-        <ion-icon item-right slot="end" name="md-create" color="success" size="small"></ion-icon>
-      </ion-button>
-      <ion-button (click)="removeSub(subscription);">
-          <ion-icon item-right slot="end" name="ios-close" color="success" size="small"></ion-icon>
-      </ion-button>
-    </ion-buttons> -->
+
     
 </ion-content>
