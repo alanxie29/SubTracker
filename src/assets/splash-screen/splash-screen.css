@@ -7,16 +7,15 @@
     }
 }
 
-#app-splash-screen {
-    background-color: #0ec254 !important;
+.logo {
+    position: absolute;
+    opacity: 0;
+    left: 20px;
+    top: 20px;
+    animation: fadeIn 0.5s ease-in;
 }
 
-.logo {
-    width: 50%;
-    height: 50%;
-    position: absolute;
-    bottom: 35%;
-    left: 27%;
-    opacity: 0;
-    animation: fadeIn 0.5s ease-in 
+.name-text {
+    color: #0ec254;
+    font-family: 'Kanit', sans-serif;
 }

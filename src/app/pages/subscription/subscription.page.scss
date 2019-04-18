@@ -15,21 +15,21 @@ ion-card {
 }
 
 ion-img {
-  margin-bottom: 22px;
+  margin-bottom: 26px;
 }
 
 ion-card-title {
   font-size: 18px;
+  top: 6px !important;
 }
 
 .description {
-  margin-top: 2px;
+  margin-top: 9px;
 }
 
 .description-text {
   margin-left: 5px;
 }
-
 
 h1 {
   font-size: 14px;
@@ -43,7 +43,8 @@ ion-text {
   font-size: 10px !important;
   margin-left: 235px !important;
   z-index: 1 !important;
-  margin-top: 10px !important;
+  margin-top: 5px !important;
+  bottom: 10px !important;
 }
 
 .date {
@@ -63,7 +64,8 @@ ion-grid {
   padding-top: 0px !important;
 }
 
-.buttons { 
+.buttons {
+  margin-top: 0px !important; 
   margin-bottom: 0x !important;
   margin-left: 220px !important;
 }
